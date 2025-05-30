@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {deleteUser} from "./userListSlice.js";
+import {deleteUser, fetchUsers} from "./userListSlice.js";
 
 function UserList() {
     const users = useSelector((state) => state.userList.users)
@@ -9,7 +9,7 @@ function UserList() {
             <h2>User List</h2>
 
             {/* Кнопка загрузки */}
-            <button className="load-btn">Load Users</button>
+            <button className="load-btn" onClick={() => dispatch(fetchUsers())}>Load Users</button>
 
             <ul>
                 {users.map((user) => (
